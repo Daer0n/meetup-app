@@ -1,11 +1,10 @@
-export {};
-const User = require("./user");
-const User_meetup = require("./userMeetup");
-const Meetup = require("./meetup");
-const Tag = require("./tag");
+import Meetup from "./meetup";
+import User from "./user";
+import Tag from "./tag";
+import MeetupUser from "./meetupUser";
 
-User.belongsToMany(Meetup, { through: User_meetup });
-Meetup.belongsToMany(User, { through: User_meetup });
+Meetup.belongsToMany(Tag, { through: "meetup_tags" });
+Tag.belongsToMany(Meetup, { through: "meetup_tags" });
 
-Tag.belongsTo(User);
-User.hasMany(Tag);
+Meetup.belongsToMany(User, { through: MeetupUser });
+User.belongsToMany(Meetup, { through: MeetupUser });
