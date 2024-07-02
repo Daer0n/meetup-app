@@ -35,7 +35,7 @@ import router from "./routers/index";
 const User = require("./models/user");
 const Tag = require("./models/tag");
 const Meetup = require("./models/meetup");
-const MeetupUser = require("./models/meetupUser");
+const MeetupUser = require("./models/meetup-user");
 
 const app = express();
 app.use(cors());
